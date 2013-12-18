@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 1, 2013 7:32:50 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.oose2013.group7.roommates.server.database.User" table="USER">
+        <id name="userId" type="java.lang.Integer">
+            <column name="USERID" />
+            <generator class="increment" />
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="userPassword" type="java.lang.String">
+            <column name="USERPASSWORD" />
+        </property>
+        <property name="userGender" type="java.lang.String">
+            <column name="USERGENDER" />
+        </property>
+        <property name="userStatus" type="java.lang.String">
+            <column name="USERSTATUS" />
+        </property>
+        <property name="userEmail" type="java.lang.String">
+            <column name="USEREMAIL" />
+        </property>
+    </class>
+    
+    <class name="com.oose2013.group7.roommates.server.database.Photo" table="PHOTO">
+        <id name="photoId" type="java.lang.Integer">
+            <column name="PHOTOID" />
+            <generator class="increment" />
+        </id>
+        <property name="photoPath" type="java.lang.String">
+            <column name="PHOTOPATH" />
+        </property>
+        <many-to-one name="userId" column="USERID" class="com.oose2013.group7.roommates.server.database.User" not-null="true"/>
+        <property name="uploadedAt" type="java.util.Date">
+            <column name="UPLOADEDAT" />
+        </property>
+    </class>
+    
+     <class name="com.oose2013.group7.roommates.server.database.Word" table="WORDS">
+        <id name="wordId" type="java.lang.Integer">
+            <column name="WORDID" />
+            <generator class="increment" />
+        </id>
+        <property name="word" type="java.lang.String">
+            <column name="WORD" />
+        </property>
+     </class>
+    
+</hibernate-mapping>
