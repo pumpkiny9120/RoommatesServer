@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.oose2013.group7.roommates.common.commands.InterfaceAdapter;
 import com.oose2013.group7.roommates.common.interfaces.Command;
 
 /***
@@ -73,9 +75,13 @@ public class NetworkHandler {
 
 	/*** Deserializes an object **/
 	public Command getObjectFromJson(String json) {
-		Gson gson = new Gson();
-		Command commandObject = gson.fromJson(json, Command.class);
-		return commandObject;
+		//Gson gson = new Gson();
+//		GsonBuilder builder = new GsonBuilder(); 
+//        builder.registerTypeAdapter(Command.class, new InterfaceAdapter<Command>()); 
+//        Gson gson = builder.create(); 
+//		Command commandObject = gson.fromJson(json, Command.class);
+//		return commandObject;
+		return CommandFactory.getCommand(json);
 	}
 
 	/** Adds an object to the sending queue **/

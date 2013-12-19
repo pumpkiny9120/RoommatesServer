@@ -57,7 +57,7 @@ public class Session implements Context {
 		this.networkHandler = networkHandler;
 		userObj = null;
 		sessionGame = null;
-		DatabaseObject dbHandler = new DatabaseObject();
+		dbHandler = new DatabaseObject();
 	}
 
 	public User getUserObj() {
